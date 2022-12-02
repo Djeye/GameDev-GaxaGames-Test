@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     {
         if (Instance != null)
         {
+            Destroy(gameObject);
             return;
         }
 
@@ -43,7 +44,6 @@ public class InputManager : MonoBehaviour
     private void UpdateKeys()
     {
         inputs[InputKeyType.Reset] = Input.GetKeyDown(KeyCode.R);
-        inputs[InputKeyType.Brake] = Input.GetKey(KeyCode.Space);
     }
 
     public enum InputAxisType : byte

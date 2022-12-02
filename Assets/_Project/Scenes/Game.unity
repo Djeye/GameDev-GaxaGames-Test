@@ -289,7 +289,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115413246}
-  m_LocalRotation: {x: 0.18321459, y: 1e-45, z: -0, w: 0.98307294}
+  m_LocalRotation: {x: 0.17824744, y: -0, z: -0, w: 0.9839857}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -379,7 +379,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c852af001dae0064e9acaa832f1dadb7, type: 2}
+  - {fileID: 2100000, guid: c181c23a6120fbe4aadd5bb53a58dd78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -674,7 +674,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -993,7 +993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865792422}
-  m_LocalRotation: {x: 0.16535006, y: -1e-45, z: -0, w: 0.98623496}
+  m_LocalRotation: {x: 0.16036716, y: -0.000000018988336, z: 0.0000000030850345, w: 0.98705745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1071,7 +1071,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883738501}
-  m_LocalRotation: {x: 0.20106587, y: -1e-45, z: -0, w: 0.9795777}
+  m_LocalRotation: {x: 0.19611613, y: -1e-45, z: -0, w: 0.9805807}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1240,8 +1240,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.18321458, y: 0.00000002929786, z: -0.0000000054602207, w: 0.98307294}
-  m_LocalPosition: {x: 0, y: 3.38, z: -20.58}
+  m_LocalRotation: {x: 0.17824745, y: -0, z: -0, w: 0.9839857}
+  m_LocalPosition: {x: 0, y: 2.9, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 3, z: -7}
+  m_FollowOffset: {x: 0, y: 2.5, z: -6}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1366,8 +1366,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
-    m_VelocityFilterStrength: 4
+    m_Definition: 1
+    m_VelocityFilterStrength: 8
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 100
+    m_MaxSpeed: 0
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -1639,13 +1639,13 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_Heading:
-    m_Definition: 2
-    m_VelocityFilterStrength: 4
+    m_Definition: 1
+    m_VelocityFilterStrength: 8
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 1
-    m_WaitTime: 0.2
-    m_RecenteringTime: 0.6
+    m_WaitTime: 0.15
+    m_RecenteringTime: 0.3
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 0
@@ -1653,8 +1653,8 @@ MonoBehaviour:
   m_Orbits:
   - m_Height: 4.5
     m_Radius: 4
-  - m_Height: 3
-    m_Radius: 7
+  - m_Height: 2.5
+    m_Radius: 6
   - m_Height: 0.5
     m_Radius: 4
   m_LegacyHeadingBias: 3.4028235e+38
@@ -1670,7 +1670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323200887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.38, z: -20.58}
+  m_LocalPosition: {x: 0, y: 2.9, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 3, z: -7}
+  m_FollowOffset: {x: 0, y: 2.5, z: -6}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1764,8 +1764,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
-    m_VelocityFilterStrength: 4
+    m_Definition: 1
+    m_VelocityFilterStrength: 8
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 3, z: -7}
+  m_FollowOffset: {x: 0, y: 2.5, z: -6}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1988,8 +1988,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
-    m_VelocityFilterStrength: 4
+    m_Definition: 1
+    m_VelocityFilterStrength: 8
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -2055,7 +2055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672480768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2960,7 +2960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8773426097593506074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.38, z: -13.58}
+  m_LocalPosition: {x: 0, y: 0.4, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3006,8 +3006,8 @@ GameObject:
   - component: {fileID: 8253594130027086752}
   - component: {fileID: 8773426097593506077}
   - component: {fileID: 4337096132181336584}
-  - component: {fileID: 8773426097593506076}
   - component: {fileID: 8773426097593506075}
+  - component: {fileID: 8773426097593506076}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -3027,47 +3027,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b2d612d5a00434bbd1d6b36d14ece8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4337096132181336584}
   centerOfMass: {fileID: 1672480769}
-  wheelController: {fileID: 8773426097593506076}
   steerAngle: 30
-  motorTorque:
+  towardsMotorTorque:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 600
-      inSlope: 0
-      outSlope: 0
+      inSlope: -16.319832
+      outSlope: -16.319832
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.12282609
+      outWeight: 0.07017983
     - serializedVersion: 3
-      time: 91.11788
-      value: 400
-      inSlope: 0.028216526
-      outSlope: 0.028216526
+      time: 19.63534
+      value: 400.09897
+      inSlope: -1.8288502
+      outSlope: -1.8288502
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.081488214
+      inWeight: 0.58176285
+      outWeight: 0.7265813
     - serializedVersion: 3
-      time: 400
-      value: 0
-      inSlope: 1.3776804
-      outSlope: 1.3776804
+      time: 200
+      value: -3.2420926
+      inSlope: 2.0153549
+      outSlope: 2.0153549
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.030933362
+      inWeight: 0.044620402
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  brakeForce: 1000
+  backwardsMotorTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 400
+      inSlope: -4.0102677
+      outSlope: -2.675385
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 149.82585
+      value: -0.8418207
+      inSlope: -2.675385
+      outSlope: -4.1132236
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.9986273
+      outWeight: 0.051345762
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timeToStop: 3
   boostAmount: 0.15
   speed: 0
-  _brake: 0
 --- !u!114 &8773426097593506076
 MonoBehaviour:
   m_ObjectHideFlags: 0

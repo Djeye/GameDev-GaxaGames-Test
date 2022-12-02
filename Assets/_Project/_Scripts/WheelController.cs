@@ -10,9 +10,12 @@ public class WheelController : MonoBehaviour
 
     public void Init()
     {
+        _driveWheelsCount = 0;
+        
         foreach (WheelInfo wheel in wheels)
         {
             wheel.Init(out bool isDrives);
+            
             if (isDrives)
             {
                 _driveWheelsCount++;
@@ -76,6 +79,7 @@ public class WheelController : MonoBehaviour
         private const int RPM_TO_ANGLE = 6;
         
         private const float DEFAULT_MOTOR_TORQUE = 0.0001f;
+        private const float DEFAULT_BRAKE_TORQUE = 0.0001f;
 
         [SerializeField] private WheelCollider wheelCollider;
         [SerializeField] private Transform wheelModel;
@@ -100,7 +104,7 @@ public class WheelController : MonoBehaviour
             wheelModel.Rotate(wheelCollider.rpm * RPM_TO_ANGLE * Time.deltaTime, 0, 0);
         }
 
-        public void SetTorque(float motorTorque, float brakeTorque)
+        public void SetTorque(float motorTorque=DEFAULT_MOTOR_TORQUE, float brakeTorque=DEFAULT_BRAKE_TORQUE)
         {
             SetMotorTorque(motorTorque);
             SetBrakeTorque(brakeTorque);

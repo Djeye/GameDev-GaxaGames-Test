@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody), typeof(WheelController))]
 public class VehiclePhysics : MonoBehaviour, IBoostable
 {
     private const float LOW_SPEED_THRESHOLD = 3f;
     private const float MS_TO_KMH = 3.6f;
-    private const float DOWNFORCE = 8.0f;
+
+    private const float DOWNFORCE_GAIN = 8.0f;
+    private const float BRAKE_GAIN = 0.05f;
+    private const float BOOST_GAIN = 30f;
+    private const float GAS_GAIN = 6f;
 
     [Header("Physics")]
     [SerializeField] private Transform centerOfMass;
@@ -13,38 +18,68 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
     [Header("Wheels")]
     [SerializeField] [Range(0f, 50.0f)] private float steerAngle = 30.0f;
 
+    [FormerlySerializedAs("motorTorque")]
     [Header("Behaviour")]
-    [SerializeField] private AnimationCurve motorTorque;
-    [SerializeField] private float brakeForce = 1500.0f;
+    [SerializeField] private AnimationCurve towardsMotorTorque;
+    [SerializeField] private AnimationCurve backwardsMotorTorque;
+    [SerializeField] private float timeToStop = 3f;
 
     [Header("Boost")]
     [SerializeField] private float boostAmount = 0.15f;
 
     [Header("info")]
     [SerializeField] private float speed;
-    [SerializeField] private bool _brake;
+
+    private float GasValue => InputManager.Instance.inputAxis[InputManager.InputAxisType.Vertical];
+    private float SteerValue => InputManager.Instance.inputAxis[InputManager.InputAxisType.Horizontal] * steerAngle;
+    private bool ResetPressed => InputManager.Instance.inputs[InputManager.InputKeyType.Reset];
+
+    private bool BrakeActivated => !IsLowSpeed && !IsDirectionAccordsToInput;
+    private bool IsLowSpeed => AbsSpeed < LOW_SPEED_THRESHOLD;
+    private bool IsDirectionAccordsToInput => GasValue.Sign() == speed.Sign();
+    private float AbsSpeed => Mathf.Abs(speed);
+
+    private float BoostForce => _rb.mass * AbsSpeed * BOOST_GAIN * boostAmount;
+    private float BrakeTorque => _rb.mass * AbsSpeed * BRAKE_GAIN / timeToStop;
+
+    private float MotorTorque =>
+        speed > 0 ? towardsMotorTorque.Evaluate(AbsSpeed) : backwardsMotorTorque.Evaluate(AbsSpeed);
+
 
     private Rigidbody _rb;
     private WheelController _wheelController;
-
-    private float BoostForce => _rb.mass * boostAmount * speed * 20;
-    private float VerticalAxisInput => InputManager.Instance.inputAxis[InputManager.InputAxisType.Vertical];
-    private float HorizontalAxisInput => InputManager.Instance.inputAxis[InputManager.InputAxisType.Horizontal];
-    private bool Reset => InputManager.Instance.inputs[InputManager.InputKeyType.Reset];
-
 
     private Transform _transform;
     private Vector3 _spawnPosition;
     private Quaternion _spawnRotation;
 
-    private float _gasValue;
-    private float _steering;
-
-    private bool _isGrounded;
-    private bool _boosting;
-
 
     private void Awake()
+    {
+        GetComponents();
+    }
+
+    private void Start()
+    {
+        Init();
+    }
+
+    private void Update()
+    {
+        if (ResetPressed)
+        {
+            ResetPosition();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        UpdatePhysics();
+        UpdateWheels();
+    }
+
+    
+    private void GetComponents()
     {
         _transform = transform;
 
@@ -52,7 +87,7 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
         _wheelController = GetComponent<WheelController>();
     }
 
-    private void Start()
+    private void Init()
     {
         _spawnPosition = _transform.position;
         _spawnRotation = _transform.rotation;
@@ -61,50 +96,30 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
         _wheelController.Init();
     }
 
-    private void Update()
-    {
-        _gasValue = VerticalAxisInput;
-        _steering = HorizontalAxisInput * steerAngle;
-
-        _brake = VerticalAxisInput < 0 && speed > 3;
-
-        if (Reset)
-        {
-            ResetPosition();
-        }
-    }
-
-    private void FixedUpdate()
+    private void UpdatePhysics()
     {
         speed = _transform.InverseTransformDirection(_rb.velocity).z * MS_TO_KMH;
-
-        _wheelController.Steer(_steering);
-        _wheelController.UpdateTorquesInfo(0.0001f, 0);
-
-        _rb.AddForce(speed * DOWNFORCE * -_transform.up);
-
-        if (_brake)
-        {
-            _wheelController.UpdateTorquesInfo(0.0001f, brakeForce);
-            return;
-        }
-
-        if (_gasValue == 0)
-        {
-            return;
-        }
-
-        if ((Mathf.Abs(speed) < LOW_SPEED_THRESHOLD || 
-             Mathf.Sign(speed) == Mathf.Sign(_gasValue)))
-        {
-            _wheelController.Drive(_gasValue * motorTorque.Evaluate(speed) * 6f);
-        }
-        else
-        {
-            _wheelController.UpdateBrakeInfo(Mathf.Abs(_gasValue) * brakeForce);
-        }
+        _rb.AddForce(AbsSpeed * DOWNFORCE_GAIN * -_transform.up);
     }
 
+    private void UpdateWheels()
+    {
+        _wheelController.Steer(SteerValue);
+        _wheelController.UpdateTorquesInfo(0.0001f, 0);
+
+        if (BrakeActivated)
+        {
+            _wheelController.UpdateBrakeInfo(BrakeTorque);
+            return;
+        }
+
+        if (GasValue == 0)
+        {
+            return;
+        }
+
+        _wheelController.Drive(GasValue * GAS_GAIN * MotorTorque);
+    }
 
     private void ResetPosition()
     {
