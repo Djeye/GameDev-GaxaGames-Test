@@ -993,7 +993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865792422}
-  m_LocalRotation: {x: 0.16036716, y: 0.000000018988336, z: -0.0000000030850345, w: 0.98705745}
+  m_LocalRotation: {x: 0.16036716, y: -0.000000018988336, z: 0.0000000030850345, w: 0.98705745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1366,8 +1366,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 1
-    m_VelocityFilterStrength: 6
+    m_Definition: 0
+    m_VelocityFilterStrength: 7
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1639,13 +1639,13 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_Heading:
-    m_Definition: 1
-    m_VelocityFilterStrength: 6
+    m_Definition: 0
+    m_VelocityFilterStrength: 7
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 1
-    m_WaitTime: 0.1
-    m_RecenteringTime: 0.5
+    m_WaitTime: 0
+    m_RecenteringTime: 0.3
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 0
@@ -1764,8 +1764,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 1
-    m_VelocityFilterStrength: 6
+    m_Definition: 0
+    m_VelocityFilterStrength: 7
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1988,8 +1988,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 1
-    m_VelocityFilterStrength: 6
+    m_Definition: 0
+    m_VelocityFilterStrength: 7
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
