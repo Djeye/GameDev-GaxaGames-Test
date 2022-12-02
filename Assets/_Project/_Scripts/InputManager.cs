@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour
 
     private void UpdateKeys()
     {
-        inputs[InputKeyType.Reset] = Input.GetKeyDown(KeyCode.R);
+        inputs[InputKeyType.Reset] = Input.GetKey(KeyCode.R);
     }
 
     public enum InputAxisType : byte

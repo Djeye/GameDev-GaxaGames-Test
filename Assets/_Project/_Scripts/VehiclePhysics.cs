@@ -66,20 +66,16 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
         Init();
     }
 
-    private void Update()
-    {
-        UpdateCameraSettings();
-
-        if (ResetPressed)
-        {
-            ResetPosition();
-        }
-    }
-
     private void FixedUpdate()
     {
         UpdatePhysics();
         UpdateWheels();
+        
+        UpdateCameraSettings();
+        if (ResetPressed)
+        {
+            ResetPosition();
+        }
     }
 
 
