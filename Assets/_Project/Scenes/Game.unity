@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &68050709
 Transform:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115413246}
-  m_LocalRotation: {x: 0.17824744, y: -0, z: -0, w: 0.9839857}
+  m_LocalRotation: {x: 0.17824744, y: -1e-45, z: -0, w: 0.9839857}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -557,7 +557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &697646801
 Transform:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &782853134
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865792422}
-  m_LocalRotation: {x: 0.16036716, y: -0.000000018988336, z: 0.0000000030850345, w: 0.98705745}
+  m_LocalRotation: {x: 0.16036716, y: 0.000000018988336, z: -0.0000000030850345, w: 0.98705745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1071,7 +1071,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883738501}
-  m_LocalRotation: {x: 0.19611613, y: -1e-45, z: -0, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: -0, z: -0, w: 0.9805807}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_AngularDamping: 0
   m_Heading:
     m_Definition: 1
-    m_VelocityFilterStrength: 8
+    m_VelocityFilterStrength: 6
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1600,8 +1600,8 @@ MonoBehaviour:
     Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 0
-    m_AccelTime: 0.2
-    m_DecelTime: 0.1
+    m_AccelTime: 0.1
+    m_DecelTime: 0.01
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -1625,7 +1625,7 @@ MonoBehaviour:
     m_SpeedMode: 0
     m_MaxSpeed: 0
     m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_DecelTime: 0.01
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
@@ -1640,12 +1640,12 @@ MonoBehaviour:
       m_LegacyVelocityFilterStrength: -1
   m_Heading:
     m_Definition: 1
-    m_VelocityFilterStrength: 8
+    m_VelocityFilterStrength: 6
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 1
-    m_WaitTime: 0.15
-    m_RecenteringTime: 0.3
+    m_WaitTime: 0.1
+    m_RecenteringTime: 0.5
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 0
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_AngularDamping: 0
   m_Heading:
     m_Definition: 1
-    m_VelocityFilterStrength: 8
+    m_VelocityFilterStrength: 6
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1989,7 +1989,7 @@ MonoBehaviour:
   m_AngularDamping: 0
   m_Heading:
     m_Definition: 1
-    m_VelocityFilterStrength: 8
+    m_VelocityFilterStrength: 6
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -2080,7 +2080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1961124128
 Transform:
   m_ObjectHideFlags: 0
@@ -3027,6 +3027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b2d612d5a00434bbd1d6b36d14ece8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cmCamera: {fileID: 1323200889}
   centerOfMass: {fileID: 1672480769}
   steerAngle: 30
   towardsMotorTorque:
@@ -3044,20 +3045,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 19.63534
       value: 400.09897
-      inSlope: -1.8288502
-      outSlope: -1.8288502
-      tangentMode: 0
+      inSlope: -0.38027245
+      outSlope: Infinity
+      tangentMode: 97
       weightedMode: 0
       inWeight: 0.58176285
-      outWeight: 0.7265813
+      outWeight: 0.27278227
+    - serializedVersion: 3
+      time: 150
+      value: 400
+      inSlope: Infinity
+      outSlope: -0.7950649
+      tangentMode: 7
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 200
-      value: -3.2420926
-      inSlope: 2.0153549
-      outSlope: 2.0153549
-      tangentMode: 0
+      value: 200
+      inSlope: -12.504043
+      outSlope: -4.2598906
+      tangentMode: 1
       weightedMode: 0
-      inWeight: 0.044620402
+      inWeight: 0.10273987
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -3086,7 +3096,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  timeToStop: 3
+  timeToStop: 1
   boostAmount: 0.15
   speed: 0
 --- !u!114 &8773426097593506076

@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
+﻿using Cinemachine;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(WheelController))]
 public class VehiclePhysics : MonoBehaviour, IBoostable
@@ -12,13 +12,15 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
     private const float BOOST_GAIN = 30f;
     private const float GAS_GAIN = 6f;
 
+    [Header("Camera")]
+    [SerializeField] private CinemachineFreeLook cmCamera;
+    
     [Header("Physics")]
     [SerializeField] private Transform centerOfMass;
 
     [Header("Wheels")]
     [SerializeField] [Range(0f, 50.0f)] private float steerAngle = 30.0f;
 
-    [FormerlySerializedAs("motorTorque")]
     [Header("Behaviour")]
     [SerializeField] private AnimationCurve towardsMotorTorque;
     [SerializeField] private AnimationCurve backwardsMotorTorque;
@@ -66,6 +68,8 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
 
     private void Update()
     {
+        UpdateCameraSettings();
+
         if (ResetPressed)
         {
             ResetPosition();
@@ -78,7 +82,7 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
         UpdateWheels();
     }
 
-    
+
     private void GetComponents()
     {
         _transform = transform;
@@ -94,6 +98,11 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
         _rb.centerOfMass = centerOfMass.localPosition;
 
         _wheelController.Init();
+    }
+
+    private void UpdateCameraSettings()
+    {
+        cmCamera.m_RecenterToTargetHeading.m_enabled = !IsLowSpeed;
     }
 
     private void UpdatePhysics()
