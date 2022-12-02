@@ -8,7 +8,7 @@ public class VehiclePhysics : MonoBehaviour, IBoostable
     private const float MS_TO_KMH = 3.6f;
 
     private const float DOWNFORCE_GAIN = 8.0f;
-    private const float BRAKE_GAIN = 0.05f;
+    private const float BRAKE_GAIN = 0.03f;
     private const float BOOST_GAIN = 30f;
     private const float GAS_GAIN = 6f;
 
